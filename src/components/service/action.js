@@ -2,13 +2,21 @@ import {
   ATTESTATION_PRICE_URL,
   DOCUMENT_TYPE_URL,
   COUNTRIES_URL,
-  DOC_ATTESTATION_CREATE_URL
+  DOC_ATTESTATION_CREATE_URL,
+  SERVICES_DATA_URL
 } from "../../constants";
 
 export const attestationState = {
   LOADING: "ATTEST_LOADING",
   SUCCESS: "ATTEST_SUCCESS",
   ERROR: "ATTEST_ERROR"
+};
+
+export const servicesState = {
+  LOADING: "SERVICES_LOADING",
+  SUCCESS: "SERVICES_SUCCESS",
+  ERROR: "SERVICES_ERROR",
+  DONE: "SERVICES_DONE"
 };
 export const countryState = {
   LOADING: "COUNTRY_LOADING",
@@ -167,6 +175,27 @@ export const attestationPrice = ({
       }));
     },
     attesstationRateState,
+    dispatch
+  );
+};
+
+export const servicesData = ({ statusId, token }) => dispatch => {
+  return Fetcher(
+    async () => {
+      const result = await fetch(`${SERVICES_DATA_URL}?statusId=${statusId}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      return result.json().then(data => ({
+        data: data,
+        status: result.ok
+      }));
+    },
+    servicesState,
     dispatch
   );
 };

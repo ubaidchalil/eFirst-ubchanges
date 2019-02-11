@@ -10,6 +10,8 @@ export const ATTESTATION_PRICE_URL =
 export const DOC_ATTESTATION_CREATE_URL =
   "https://api.efirst.ae/Service/CreateDocumentAttestation";
 export const DASHBOARD_DATA_URL = "https://api.efirst.ae/Dashboard/Get";
+export const SERVICES_DATA_URL =
+  "https://api.efirst.ae/ServiceRequest/GetSRByStatus";
 export const Color = {
   main: "#7c7c7c",
   secondary: "#b61e89"

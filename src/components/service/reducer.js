@@ -2,7 +2,8 @@ import {
   attestationState,
   countryState,
   documentTypeState,
-  attesstationRateState
+  attesstationRateState,
+  servicesState
 } from "./action";
 const initialDocumentAttestation = {
   loading: false,
@@ -11,6 +12,13 @@ const initialDocumentAttestation = {
 };
 
 const initialCountry = {
+  loading: false,
+  data: [],
+  succuss: null,
+  error: null
+};
+
+const initialServices = {
   loading: false,
   data: [],
   succuss: null,
@@ -71,6 +79,21 @@ export const countries = (state = initialCountry, action) => {
     case countryState.SUCCESS:
       return { ...state, success: action.state };
     case countryState.ERROR:
+      return { ...state, error: action.state };
+    default:
+      return state;
+  }
+};
+
+export const services = (state = initialServices, action) => {
+  switch (action.type) {
+    case servicesState.LOADING:
+      return { ...state, loading: action.state };
+    case servicesState.DONE:
+      return { ...state, data: action.state };
+    case servicesState.SUCCESS:
+      return { ...state, success: action.state };
+    case servicesState.ERROR:
       return { ...state, error: action.state };
     default:
       return state;

@@ -102,7 +102,7 @@ export default ({ navigation, dashboard }) => (
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("", { serviceId: 2 });
+                navigation.navigate("UserAction", { statusId: 2 });
               }}
             >
               <Icon style={{ color: "#515A5A" }} name="arrow-dropright" />

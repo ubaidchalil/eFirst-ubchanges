@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from "../components/dashboard";
+import UserAction from "../components/service/useractions";
 import DocumentAttestationScreen from "../components/service/documentattestation";
 import AuthStack from "./accountstack";
 import RootHeader from "../components/styled/Headers/RootHeader";
@@ -19,6 +20,12 @@ const root = createStackNavigator({
   },
   DocumentAttestationScreen: {
     screen: DocumentAttestationScreen,
+    navigationOptions: {
+      header: <RootHeader />
+    }
+  },
+  UserAction: {
+    screen: UserAction,
     navigationOptions: {
       header: <RootHeader />
     }

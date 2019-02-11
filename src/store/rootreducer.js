@@ -10,8 +10,10 @@ import {
 import {
   countries,
   attestationrate,
-  documenttypes
-} from "../components/servicerequest/reducer";
+  documenttypes,
+  services,
+  documentattestation
+} from "../components/service/reducer";
 
 import { dashboard } from "../components/dashboard/reducer";
 
@@ -26,7 +28,9 @@ const config = {
     "attestationrate",
     "countries",
     "documenttypes",
-    "dashboard"
+    "dashboard",
+    "documentattestation",
+    "services"
   ]
 };
 
@@ -38,7 +42,9 @@ const combinedReducers = {
   countries,
   attestationrate,
   documenttypes,
-  dashboard
+  dashboard,
+  documentattestation,
+  services
 };
 
 export default persistCombineReducers(config, combinedReducers);
